@@ -1,3 +1,9 @@
+// synonym function
+const createElements = (arr)=>{
+    const htmlElements = arr.map((el) => `<span class="btn">${el}</span>`);
+    return htmlElements.join(" ");
+}
+
 const loadLessons = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
     .then(res=> res.json())
@@ -49,9 +55,7 @@ const displayWordDetails = (word)=>{
                 </div>
                 <div>
                     <h2 class="font-bold">Synonym</h2>
-                    <span class="btn">syn1</span>
-                    <span class="btn">syn1</span>
-                    <span class="btn">syn1</span>
+                    <div>${createElements(word.synonyms)}</div>
                 </div>
     `;
 
